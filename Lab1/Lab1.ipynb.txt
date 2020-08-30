@@ -1,0 +1,50 @@
+charset1={i+1:chr(i+97) for i in range(26)}
+charset2={i+1:chr(i+65) for i in range(26)}
+print("------------------CAESAR CIPHER------------------")
+n=int(input("Enter the number of times you want to run the program: "))
+while(n!=0):
+    a=input(("Enter the Message : "))
+    k=int(input("Enter Key: "))
+    if(k>26):
+        break
+    print("Choose the following options :")
+    print("1 : Encrypt the Message")
+    print("2 : Decrypt the Message")
+    ch=int(input("Choice : "))
+    if(ch==1):
+        c=0
+        res=""
+        while(c!=len(a)):
+            if(a[c].islower()):
+                res+=charset1[((ord(a[c])-96)+k)%26]
+            elif(a[c].isupper()):
+                res+=charset2[((ord(a[c])-64)+k)%26]
+            else:
+                res+=" "
+            c+=1    
+        print(res)
+    elif(ch==2):
+        c=0
+        res=""
+        while(c!=len(a)):
+            if(a[c].islower()):
+                res+=charset1[((ord(a[c])-96)-k)%26]
+            elif(a[c].isupper()):
+                res+=charset2[((ord(a[c])-64)-k)%26]
+            else:
+                res+=" "
+            c+=1    
+        print(res)
+    else:
+        print("No such option")
+    n-=1
+
+
+
+
+
+
+from random import randint
+print("10 cryptographic nonces - ")
+for i in range(10):
+    print(randint(1,10000))
