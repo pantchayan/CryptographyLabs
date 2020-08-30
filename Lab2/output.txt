@@ -1,0 +1,2 @@
+Enter Message to Encrypt:
+CODE: BCDE
